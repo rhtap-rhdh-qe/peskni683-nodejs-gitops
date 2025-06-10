@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: peskni683-nodejs-gitops
+  description: This is GitOps manifest for peskni683-nodejs   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=peskni683-nodejs
+    backstage.io/kubernetes-id: peskni683-nodejs 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: peskni683-nodejs
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:peskni683-nodejs
